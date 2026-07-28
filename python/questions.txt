@@ -1,0 +1,234 @@
+1. What is the difference between mutable and immutable data types in Python?
+2. How does Python manage memory, and what causes memory leaks despite Garbage Collection?
+3. Explain the difference between == vs is, and how Python optimizes small integers and strings.
+4. How do *args and **kwargs work under the hood, and what happens when you combine them with explicit parameters?
+5. What is the difference between list.sort() and sorted(), and how do mutability and shallow vs. deep copies apply?
+6. How do Python Decorators work, and what problem does functools.wraps solve?
+7. How does memory management work in Python?
+8. What are Python list comprehensions and how do they differ from traditional for loops?
+9. How do local and global variables work, and what does the global keyword do?
+10. What are the differences between list, tuple, and set in Python?
+11. What is the difference between deep copy and shallow copy in Python?
+12. How do positional arguments, *args, and **kwargs work in function definitions?
+13. What are decorators in Python and how do you write a basic decorator?
+14. What is the difference between __init__ and __new__ in Python OOP?
+15. How do Python's GIL (Global Interpreter Lock) and multi-threading/multi-processing work?
+16. How do Python generators work, and how do they differ from regular functions and iterators?
+17. What are Python decorators, and how do you write a decorator that accepts custom arguments?
+18. How does Python handle memory allocation and reference counting under the hood?
+19. What is the difference between @classmethod, @staticmethod, and regular instance methods?
+20. What is the difference between a shallow copy and a deep copy? Explain with an example where using a shallow copy can cause an unexpected bug.
+
+21. Given the following code, what will be the output, and why?
+
+def func(lst=[]):
+    lst.append(1)
+    return lst
+
+print(func())
+print(func())
+print(func())
+
+What is the issue?
+How would you fix it?
+
+22. Explain the difference between:
+
+Iterable
+Iterator
+Generator
+
+Also answer:
+
+How does for loop internally work with an iterator?
+Why are generators considered memory efficient?
+
+23. What will be the output of the following code?
+
+class A:
+    def show(self):
+        print("A")
+
+class B(A):
+    def show(self):
+        print("B")
+
+class C(A):
+    def show(self):
+        print("C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.show()
+print(D.__mro__)
+
+Explain how Python decides which show() method to call.
+What is MRO, and which algorithm does Python use to compute it?
+
+
+24. You have a list of one million numbers.
+nums = range(1000000)
+
+You need to square every even number.
+
+Compare these approaches:
+
+List comprehension
+Generator expression
+map() + filter()
+
+Discuss:
+
+Time complexity
+Memory usage
+Which approach you would choose in a real production application, and why
+
+
+25. 
+Predict the Output (Closures + Late Binding)
+
+What is the output of the following code? Explain why.
+
+funcs = []
+
+for i in range(5):
+    funcs.append(lambda: i)
+
+print([f() for f in funcs])
+Follow-up:
+Why does this happen?
+How would you fix it without using functools.partial?
+What concept is involved?
+
+
+26. Mutable Default Argument + Object Lifetime
+
+Predict the output.
+
+def append_item(item, lst=[]):
+    lst.append(item)
+    return lst
+
+print(append_item(1))
+print(append_item(2))
+print(append_item(3))
+
+Now consider this version:
+
+def append_item(item, lst=None):
+    if lst is None:
+        lst = []
+    lst.append(item)
+    return lst
+Follow-up:
+Why does Python evaluate default arguments only once?
+Where are default arguments stored?
+How can you inspect them?
+
+
+27. Multiple Inheritance and MRO (Super)
+
+Without running the code, determine the output.
+
+class A:
+    def show(self):
+        print("A")
+
+class B(A):
+    def show(self):
+        print("B")
+        super().show()
+
+class C(A):
+    def show(self):
+        print("C")
+        super().show()
+
+class D(B, C):
+    def show(self):
+        print("D")
+        super().show()
+
+D().show()
+
+Follow-up:
+What is the MRO?
+Why is A.show() called only once?
+Which algorithm computes Python's MRO?
+What problem does C3 linearization solve?
+
+28. Memory Model and Identity
+
+Predict the output.
+
+a = 256
+b = 256
+
+print(a is b)
+
+x = 257
+y = 257
+
+print(x is y)
+
+s1 = "python"
+s2 = "python"
+
+print(s1 is s2)
+
+s3 = "".join(["py", "thon"])
+
+print(s1 is s3)
+
+Follow-up:
+Explain integer caching.
+Explain string interning.
+When should you use is instead of ==?
+Can relying on is with integers be a bug?
+
+
+29. Metaclasses, __new__, and __init__
+
+Predict the exact output.
+
+class Demo:
+    def __new__(cls):
+        print("new")
+        obj = super().__new__(cls)
+        return obj
+
+    def __init__(self):
+        print("init")
+
+d = Demo()
+Follow-up:
+What is the difference between __new__ and __init__?
+Can __init__ return a value?
+What happens if __new__ returns an instance of another class?
+What is the metaclass of every Python class by default?
+When would you override __new__ in real-world code?
+
+
+30. Without running the code, predict the output:
+
+class Test:
+    count = 0
+
+    def __init__(self):
+        self.count += 1
+
+a = Test()
+b = Test()
+
+print(Test.count)
+print(a.count)
+print(b.count)
+
+Explain:
+
+Why isn't Test.count updated?
+Where is self.count stored?
+Draw the object's __dict__ after execution.
+
