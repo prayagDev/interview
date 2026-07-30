@@ -1,0 +1,133 @@
+RAM
+│
+└── Heap
+       ├── int(100)
+       ├── str("hello")
+       ├── list(...)
+       ├── dict(...)
+       └── Global Namespace (dict)
+              ├── x → int(100)
+              ├── y → int(100)
+              └── a → str("hello")
+
+
+This diagram explains where is all objects and their variable names are stored
+
+Ques: Why we call the heap as private heap when we talk about python memory?
+Ans:
+    because only the Python memory manager (PyMalloc/CPython) can directly allocate or free that memory.
+    Your Python code never manipulates the heap directly
+    it only creates references to objects,
+    while Python manages the heap behind the scenes.
+
+
+Ques: When memory gets free?
+Ans:
+    x = 100 
+    y = 100 
+    a = x 
+    a = "" 
+    a = "one hundred" 
+    a = None
+
+    Line 1
+    x = 100
+    x ───────────────┐
+                 │
+                 ▼
+        +----------------+
+        | int(100)       |
+        | refcount = 1   |
+        +----------------+
+
+    Line 2
+    y = 100
+    x ───────────────┐
+                 │
+    y ───────────────┘
+                 │
+                 ▼
+        +----------------+
+        | int(100)       |
+        | refcount = 2   |
+        +----------------+
+
+    Line 3
+    a = x
+    x ───────────────┐
+                 │
+y ───────────────┤
+                 │
+a ───────────────┘
+                 │
+Heap             ▼
+        +----------------+
+        | int(100)       |
+        | refcount = 3   |
+        +----------------+
+
+
+    Line 4
+    a = ""
+
+    x ───────────────┐
+                 │
+y ───────────────┘
+                 │
+                 ▼
+        +----------------+
+        | int(100)       |
+        | refcount = 2   |
+        +----------------+
+
+a ───────────────┐
+                 │
+Heap             ▼
+        +----------------+
+        | ""             |
+        | refcount = 1   |
+        +----------------+
+
+
+    Line 5
+    a = "one hundred"
+
+
+    x ───────────────┐
+                 │
+y ───────────────┘
+                 │
+                 ▼
+        +----------------+
+        | int(100)       |
+        | refcount = 2   |
+        +----------------+
+
+a ───────────────┐
+                 │
+Heap             ▼
+        +----------------+
+        | "one hundred"            |
+        | refcount = 1   |
+        +----------------+
+
+         +----------------+
+        | ""            |
+        | refcount = 0   |
+        +----------------+
+
+    which object ref count becomes 0 it becomes eligible for free memory
+
+
+
+Ques: What is cicular reference? why we need garbage collector for this case? why cannot we cleanup using reference counting?
+Ans:
+    class Node: pass a = Node() b = Node() a.friend = b b.friend = a
+    del a 
+    del b 
+
+    so here del only deletes Namespace not objects
+    the reason is simple object will not delete because it still reference to another object which still alive
+
+    so we use garbage collector which finally clean up this stuff
+
