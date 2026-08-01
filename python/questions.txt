@@ -232,3 +232,40 @@ Why isn't Test.count updated?
 Where is self.count stored?
 Draw the object's __dict__ after execution.
 
+
+31. 
+
+what is encapsulation and what is encapsulation if a friend explains me both defintions in short and 
+tell me a problem from which i can understand how to apply this encapsulation 
+and that problem should be solvable quick and in core python only ( i mean that should not be very long problem ) 
+and that code also u write
+
+
+32. 
+
+what is abstraction and what is abstraction if a friend explains me both defintions in short and 
+tell me a problem from which i can understand how to apply this abstraction 
+and that problem should be solvable quick and in core python only ( i mean that should not be very long problem ) 
+and that code also u write
+
+
+33. 
+
+what is Inheritance and what is Inheritance if a friend explains me both defintions in short and 
+tell me a problem from which i can understand how to apply this Inheritance 
+and that problem should be solvable quick and in core python only ( i mean that should not be very long problem ) 
+and that code also u write
+
+34.
+what is Polymorphism and what is Polymorphism if a friend explains me both defintions in short and 
+tell me a problem from which i can understand how to apply this Polymorphism 
+and that problem should be solvable quick and in core python only ( i mean that should not be very long problem ) 
+and that code also u write
+
+
+35.
+what is map, filter, lambda and what is map, filter, lambda if a friend explains me both defintions in short and 
+tell me a problem from which i can understand how to apply this map, filter, lambda 
+and that problem should be solvable quick and in core python only ( i mean that should not be very long problem ) 
+and that code also u write
+
