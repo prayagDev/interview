@@ -1,0 +1,28 @@
+A decorator in Python is a function that modifies or extends the behavior of another function or class without changing its source code.
+
+Decorators are commonly used for:
+Logging
+Authentication/authorization
+
+
+def repeat(times):          # 1. Decorator arguments
+    def decorator(func):    # 2. Function being decorated
+        def wrapper(*args, **kwargs):   # 3. Function arguments
+            for _ in range(times):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+
+@repeat(3)
+def greet():
+    print("Hello")
+
+greet()
+
+Output:
+Hello
+Hello
+Hello
+
+above code explains that decorator can also accepts arguments

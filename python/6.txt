@@ -1,0 +1,91 @@
+The Problem Without functools.wraps
+
+def decorator(func):
+
+    def wrapper():
+        print("Before")
+        func()
+
+    return wrapper
+
+@decorator
+def greet():
+    """Greets user"""
+    print("Hello")
+
+
+print(greet.__name__)
+print(greet.__doc__)
+
+
+wrapper
+None
+
+
+This is wrong!
+
+The original function was
+
+greet
+
+But after decoration, Python thinks the function is
+
+wrapper
+
+because greet now points to the wrapper function.
+
+Why Is This a Problem?
+
+Many tools rely on function metadata:
+
+Documentation generators
+Debuggers
+Stack traces
+Frameworks like Django and Flask
+Introspection (inspect module)
+
+Without metadata preservation:
+
+Actual function:
+greet()
+
+Python thinks:
+
+wrapper()
+
+This makes debugging and tooling harder.
+
+
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+
+
+Solution: functools.wraps
+from functools import wraps
+
+def decorator(func):
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+
+        print("Before")
+
+        return func(*args, **kwargs)
+
+    return wrapper
+
+Now
+
+@decorator
+def greet():
+    """Greets user"""
+    print("Hello")
+
+print(greet.__name__)
+print(greet.__doc__)
+
+Output
+
+greet
+Greets user
+

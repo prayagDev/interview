@@ -1,0 +1,13 @@
+A local variable is defined inside a function and exists only while that function is executing.
+A global variable is defined outside all functions and can be read from anywhere in the module.
+Python searches for variables in the LEGB order:
+Local
+Enclosing (nested functions)
+Global
+Built-in
+
+The global keyword tells Python 
+that assignments inside a function should modify the variable in the global scope 
+instead of creating a new local variable. 
+Without global, any assignment inside a function creates a local variable by default.
+

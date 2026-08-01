@@ -1,0 +1,16 @@
+A classic example: appending to a module-level cache without ever clearing it.
+
+python
+cache = []
+
+def process(data):
+    result = expensive_computation(data)
+    cache.append(result)  # never removed
+    return result
+
+Each call adds to cache, which stays alive for the program's lifetime since 
+it's a global reference—so result objects never get garbage collected, 
+even though nothing "wrong" happened with reference counting. 
+Over time, memory grows unbounded. This is common with in-memory caches, 
+event listeners, or logging lists that accumulate without eviction.
+

@@ -1,0 +1,95 @@
+
+25. 
+Predict the Output (Closures + Late Binding)
+
+What is the output of the following code? Explain why.
+[4, 4, 4, 4, 4]
+
+
+funcs = []
+
+for i in range(5):
+    funcs.append(lambda: i)
+
+print([f() for f in funcs])
+#[4, 4, 4, 4, 4]
+
+
+Follow-up:
+Why does this happen?
+Because closures in Python capture variables, not their values.
+
+The lookup happens when the function is called, not when it is created.
+
+This behavior is called late binding.
+
+
+
+How would you fix it without using functools.partial?
+The easiest fix is using default arguments.
+funcs = []
+
+for i in range(5):
+    funcs.append(lambda i=i: i)
+
+print([f() for f in funcs])
+Output
+
+[0,1,2,3,4]
+ 
+
+ OR 
+
+ def make_func(i):
+    return lambda: i
+
+funcs = []
+
+for i in range(5):
+    funcs.append(make_func(i))
+
+print([f() for f in funcs])
+
+from functools import partial
+
+funcs = []
+
+def identity(x):
+    return x
+
+for i in range(5):
+    funcs.append(partial(identity, i))
+
+print([f() for f in funcs])
+
+What concept is involved?
+Closures: Inner functions remember variables from their enclosing scope.
+Free variables: Variables used inside a function but defined outside it.
+Late binding: Free variables are resolved when the function is called, not when it is defined.
+Default argument evaluation: Default parameter values are evaluated once, 
+at function creation time, which can be used to capture the current value.
+
+
+what is functools.partial?
+
+A simple mental model
+
+Imagine a function:
+
+def send_email(to, subject, body):
+    ...
+
+Instead of writing
+
+send_email("admin@example.com", "Alert", body)
+send_email("admin@example.com", "Alert", another_body)
+
+you can do
+
+alert_email = partial(send_email, "admin@example.com", "Alert")
+
+alert_email("Server is down")
+alert_email("Disk is full")
+
+partial has already "filled in" the first two arguments, so you only provide the remaining ones.
+

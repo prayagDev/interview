@@ -1,0 +1,37 @@
+30. Without running the code, predict the output:
+
+class Test:
+    count = 0
+
+    def __init__(self):
+        self.count += 1
+
+a = Test()
+b = Test()
+
+
+print(Test.count)
+print(a.count)
+print(b.count)
+
+
+0
+1
+1
+
+
+
+
+Why isn't Test.count updated?
+Where is self.count stored?
+It is stored in the instance's __dict__.
+
+Draw the object's __dict__ after execution.
+Test.__dict__
+
+{
+    'count': 0,
+    '__init__': <function>,
+    ...
+}
+

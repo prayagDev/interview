@@ -1,0 +1,122 @@
+==
+
+"Do these objects contain the same value?"
+
+
+is
+
+"Are these two variables pointing to the exact same object?"
+
+
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+
+Output
+
+True
+False
+
+Why?
+
+Memory:
+
+a ─────► List Object A
+         [1,2,3]
+
+b ─────► List Object B
+         [1,2,3]
+
+Example 2
+a = [1,2,3]
+
+b = a
+
+Memory
+
+a ─────┐
+       │
+       ▼
+    [1,2,3]
+       ▲
+       │
+b ─────┘
+
+Now
+
+print(a == b)
+print(a is b)
+
+Output
+
+True
+True
+
+
+-----------------------
+Small Integer Optimization (Integer Caching)
+
+Python creates millions of integers.
+
+Creating new objects every time would waste memory.
+
+So CPython pre-creates and reuses small integers in the range:
+
+-5 to 256
+
+Example:
+
+a = 100
+b = 100
+
+print(a is b)
+
+Output
+
+True
+
+Memory:
+
+Integer Cache
+
+100
+ ▲
+ │
+a
+ │
+ ▼
+b
+
+Both variables point to the same cached integer object.
+
+Larger Integers
+a = 1000
+b = 1000
+
+print(a is b)
+
+You may get:
+
+False
+
+--------------------
+
+
+String Interning
+
+Python also optimizes many strings by interning them.
+
+Example:
+
+a = "hello"
+b = "hello"
+
+print(a is b)
+
+Usually
+
+True
+

@@ -1,0 +1,43 @@
+29. Metaclasses, __new__, and __init__
+
+Predict the exact output.
+answer:
+new
+init
+
+class Demo:
+    def __new__(cls):
+        print("new")
+        obj = super().__new__(cls)
+        return obj
+
+    def __init__(self):
+        print("init")
+
+d = Demo()
+Follow-up:
+What is the difference between __new__ and __init__?
+
+
+Can __init__ return a value?
+answer: no 
+
+
+What happens if __new__ returns an instance of another class?
+answer: 
+so init will be called of that another class
+
+What is the metaclass of every Python class by default?
+answer:
+
+
+metaclass is a class of all classes 
+when we define int x = 10; 
+so int class create a object which is x 
+but int class itself is created from type
+
+
+When would you override __new__ in real-world code?
+answer:
+"__new__ would be override when I need to control how an object is created before it exists.
+

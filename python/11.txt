@@ -1,0 +1,106 @@
+Shallow copy copies only the outer object. Nested objects are shared.
+Deep copy recursively copies everything. Nested objects are independent.
+
+
+import copy
+
+a = [1, 2, 3]
+# this is an assignment not a copy so this will work individual
+b = a
+
+print(b)
+b=['ki tu mera hai bhi ya nhi']
+print(a)
+print(b)
+
+
+[1, 2, 3]
+[1, 2, 3]
+['ki tu mera hai bhi ya nhi']
+
+#----------------------------
+#----------------------------
+
+a = [[1, 2], [3, 4]]
+
+b = copy.copy(a)
+# shallow copy 
+# this copies only outer list and not inner list
+# tahts why u do any change in the outer wont reflect in the old list
+# but changes done on inner list would reflect yes
+
+b.append([5, 6])
+
+b[0].append(100)
+
+print(a)
+print(b)
+
+[[1, 2, 100], [3, 4]]
+[[1, 2, 100], [3, 4], [5, 6]]
+
+#----------------------------
+#----------------------------
+
+
+a = [[1, 2], [3, 4]]
+
+b = copy.deepcopy(a)
+
+b[0].append(100)
+
+print(a)
+print(b)
+
+
+[[1, 2], [3, 4]]
+[[1, 2, 100], [3, 4]]
+
+
+shallow copy diagram
+
+            +----------------------+
+a --------->|   *           *      |
+            +----------------------+
+                |           |
+                ▼           ▼
+          +-----------+   +------+
+          |1,2,100    |   | 3,4  |
+          +-----------+   +------+
+                ▲           ▲
+                |           |
+                |           |
+            +----------------------------+
+b --------->|   *           *        *   |
+            +----------------------------+
+                |           |        |
+                |           |        ▼
+                |           |    +------+
+                |           |    | 5,6  |
+                |           |    +------+
+                └───────────┴────────────► Shared
+
+
+a deep copy diagram
+
+a
+
++----------------------+
+|   *           *      |
++----------------------+
+    |           |
+    ▼           ▼
+ [1,2]       [3,4]
+
+
+
+b
+
++----------------------------+
+|   *           *        *   |
++----------------------------+
+    |           |        |
+    ▼           ▼        ▼
+[1,2,100]    [3,4]    [5,6]
+
+

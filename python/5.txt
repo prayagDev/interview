@@ -1,0 +1,158 @@
+Part 1: list.sort() vs sorted()
+list.sort()
+Sorts the original list
+Returns None
+Works only on lists
+
+Example:
+
+numbers = [5, 2, 4, 1]
+
+result = numbers.sort()
+
+print(numbers)
+print(result)
+
+Output
+
+[1, 2, 4, 5]
+None
+
+Memory:
+
+Before
+
+numbers ─────► [5,2,4,1]
+
+
+After sort()
+
+numbers ─────► [1,2,4,5]
+
+The same list object is modified.
+
+sorted()
+Returns a new sorted object
+Does not modify the original
+Works with any iterable
+
+Example
+
+numbers = [5,2,4,1]
+
+result = sorted(numbers)
+
+print(numbers)
+print(result)
+
+Output
+
+[5,2,4,1]
+[1,2,4,5]
+
+Memory
+
+numbers ─────► [5,2,4,1]
+
+sorted(numbers)
+
+result ───────► [1,2,4,5]
+
+The original list remains unchanged.
+
+sorted() Works on More Than Lists
+name = "python"
+
+print(sorted(name))
+
+Output
+
+['h', 'n', 'o', 'p', 't', 'y']
+
+Also works on:
+
+tuples
+strings
+sets
+dictionary keys
+generators
+
+Example
+
+numbers = (5,3,1)
+
+print(sorted(numbers))
+
+Output
+
+[1,3,5]
+
+Notice it returns a list.
+
+Reverse Sorting
+
+Both support
+
+numbers.sort(reverse=True)
+
+and
+
+sorted(numbers, reverse=True)
+Custom Sorting
+
+Example
+
+words = ["banana","cat","apple"]
+
+print(sorted(words, key=len))
+
+Output
+
+['cat', 'apple', 'banana']
+
+Sorts by length instead of alphabetically.
+
+Summary
+Feature	sort()	sorted()
+Modifies original	✅ Yes	❌ No
+Returns	None	New sorted list
+Works on	Lists only	Any iterable
+Memory	Same object	New object
+
+
+
+###################################################################################################################
+###################################################################################################################
+
+
+Part 2: Mutability
+
+A mutable object can be changed after creation.
+
+numbers = [1,2,3]
+
+numbers.append(4)
+
+Immutable objects cannot change.
+
+name = "Python"
+
+name += "3"
+
+raise error
+
+
+Mutable Types
+list
+dict
+set
+bytearray
+
+Immutable Types
+int
+float
+bool
+tuple
+string
+frozenset
+

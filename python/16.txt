@@ -1,0 +1,54 @@
+A generator is a special type of iterator in Python that produces values one at a time on demand instead of computing and storing all values in memory at once.
+
+Generators are ideal when working with:
+
+Large files
+Huge datasets
+Infinite sequences
+Streaming data
+
+
+def numbers():
+    yield 10
+    yield 20
+    yield 15
+    yield 30
+    # yield 25
+
+gen = numbers()
+
+total = 0
+
+while total < 100:
+    try:
+        total += next(gen)
+        print(f"Current sum = {total}")
+    except StopIteration:
+        print("Generator ended before sum reached 100.")
+        break
+
+if total == 100:
+    print("Sum reached exactly 100!")
+
+
+
+def numbers():
+    for i in range(1_000_000):
+        yield i
+
+gen = numbers()
+
+for g in gen:
+    print(g)
+    break
+
+
+In this above code - i added break after printing g at once so generator is not pointing to 1 and it does not hold all values in memory
+
+
+
+x = list(gen)
+
+but when i do list gen it stores all values in the list so it exhaust generator feature
+
+

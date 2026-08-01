@@ -1,0 +1,4 @@
+Python computes the MRO using the C3 Linearization algorithm, 
+which produces a consistent order that respects child-before-parent relationships 
+and the left-to-right order of base classes.
+

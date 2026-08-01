@@ -1,0 +1,42 @@
+21. Given the following code, what will be the output, and why?
+
+def func(lst=[]):
+    lst.append(1)
+    return lst
+
+print(func())
+print(func())
+print(func())
+
+What is the issue?
+How would you fix it?
+
+
+Output
+[1]
+[1, 1]
+[1, 1, 1]
+Why?
+
+The default list ([]) is created once at function definition time, 
+not on every function call. Since lists are mutable, each call modifies the same list.
+
+Issue
+
+Using a mutable object as a default argument causes state to persist across function calls, leading to unexpected behavior.
+
+Fix
+
+Use None as the default and create a new list inside the function.
+
+def func(lst=None):
+    if lst is None:
+        lst = []
+    lst.append(1)
+    return lst
+
+Interview one-liner:
+
+"Never use mutable objects like [], {}, or set() as default arguments 
+because they are evaluated only once and shared across all function calls."
+

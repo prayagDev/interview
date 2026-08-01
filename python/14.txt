@@ -1,0 +1,13 @@
+This is an advanced OOP interview question. The key thing to remember is:
+
+__new__ creates the object.
+__init__ initializes the object.
+
+
+__new__ is responsible for creating and returning a new instance of a class, 
+while __init__ initializes that instance after it has been created.
+
+__new__ is something which runs under the hood 
+if we really want something then we can define it explicitly and 
+do what we want before return the newly created object
+

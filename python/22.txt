@@ -1,0 +1,32 @@
+Iterable: An object that can return an iterator using iter(). Examples: list, tuple, dict.
+Iterator: An object that implements __next__() and returns one item at a time until StopIteration.
+
+
+
+How does a for loop work internally?
+
+Suppose
+
+nums = [10, 20, 30]
+
+for x in nums:
+    print(x)
+
+Python internally does approximately this:
+
+it = iter(nums)
+
+while True:
+    try:
+        x = next(it)
+        print(x)
+    except StopIteration:
+        break
+
+
+generator is also a type of iterable right?
+
+Yes. More precisely:
+
+A generator is both an iterable and an iterator. ✅
+

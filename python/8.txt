@@ -1,0 +1,12 @@
+A list comprehension is a concise syntax for creating a new list by iterating over an iterable 
+and optionally filtering or transforming elements.
+
+Traditional loop:
+
+squares = []
+for x in range(5):
+    squares.append(x * x)
+
+List comprehension:
+
+squares = [x * x for x in range(5)]
