@@ -1,0 +1,33 @@
+📖 Interview Definition (Short)
+
+Encapsulation is the process of wrapping data (variables) and 
+methods (functions) together inside a class and controlling direct access to the data.
+
+it is just same like we expose an api in our projects.
+so no matter how many fields my db have but fields will only get the opeation on which i let user to do it by the api
+
+👬 Friend's Definition (Very Short)
+
+"Bhai, encapsulation ka matlab hai apna data kisi box ke andar rakhna aur bahar wale ko direct haath na lagane dena. 
+Agar kuch change karna hai to mere diye hue methods se hi karo."
+
+Think of an ATM:
+
+You can't directly change your bank balance.
+You have to use deposit() or withdraw().
+That's encapsulation.
+
+
+Quick Practice Problem
+Problem
+
+Create a BankAccount class.
+
+Requirements:
+
+Initial balance = 0
+User can deposit money.
+User can withdraw money.
+User cannot make the balance negative.
+Balance should not be changed directly from outside.
+
