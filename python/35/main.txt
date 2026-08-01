@@ -1,0 +1,17 @@
+One-line Memory Trick
+Lambda → "Quick one-line function."
+Map → "Modify every element."
+Filter → "Keep only matching elements."
+
+Problem
+
+Take only even numbers and square them.
+
+Input
+
+[1,2,3,4,5,6]
+
+Output
+
+[4,16,36]
+

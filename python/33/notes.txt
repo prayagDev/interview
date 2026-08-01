@@ -1,0 +1,24 @@
+📖 Interview Definition (Short)
+
+Inheritance is the mechanism by which one class acquires the properties and methods of another class.
+
+👬 Friend's Definition (Very Short)
+
+"Bhai, inheritance ka matlab hai ek class dusri class ke features free me le leti hai, taaki same code dobara na likhna pade."
+
+Quick Practice Problem
+Problem
+
+Create a base class called Animal.
+
+It should have:
+
+eat()
+
+Create two child classes:
+
+Dog
+Cat
+
+Both should automatically get the eat() method.
+

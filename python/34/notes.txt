@@ -1,0 +1,29 @@
+📖 Interview Definition (Short)
+
+Polymorphism means one interface (same method name) can have many different implementations (behaviors).
+
+👬 Friend's Definition (Very Short)
+
+"Bhai, polymorphism ka matlab hai same method ka naam rahega, lekin object ke hisaab se alag-alag kaam karega."
+
+
+Quick Practice Problem
+Problem
+
+Create a parent class:
+
+Animal
+
+Create three child classes
+
+Dog
+Cat
+Cow
+
+Each should have its own
+
+sound()
+
+method.
+
+Now store all objects in one list and call

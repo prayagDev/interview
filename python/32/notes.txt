@@ -1,0 +1,47 @@
+📖 Interview Definition (Short)
+
+Abstraction is the process of hiding unnecessary implementation details and showing only the essential features to the user.
+
+👬 Friend's Definition (Very Short)
+
+"Bhai, abstraction ka matlab hai kaam karne ka button dikha do, andar kaise ho raha hai wo mat dikhao."
+
+Think of a TV remote.
+
+You press:
+
+Power ON
+
+Do you know how electricity flows, the motherboard starts, the screen initializes, etc.?
+
+❌ No.
+
+
+Difference from Encapsulation
+
+Many beginners confuse them.
+
+Encapsulation says:
+
+"Don't touch my data directly."
+
+Abstraction says:
+
+"You don't need to know how I do my work."
+
+
+Quick Practice Problem
+Problem
+
+Create a CoffeeMachine class.
+
+Requirements:
+
+User should only call
+make_coffee()
+Internally it should
+Boil Water
+Add Coffee
+Pour into Cup
+
+The user shouldn't have to call those methods one by one.
