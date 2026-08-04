@@ -1,0 +1,20 @@
+Must-Do (Top 15)
+
+If you don't have time to solve all 50, solve these first:
+
+1. Combine Two Tables
+2. Employees Earning More Than Their Managers
+3. Duplicate Emails
+4. Customers Who Never Order
+5. Rising Temperature
+6. Employee Bonus
+7. Product Sales Analysis I
+8. Average Selling Price
+9. Students and Examinations
+10. Restaurant Growth
+11. Rank Scores
+12. Second Highest Salary
+13. Nth Highest Salary
+14. Department Highest Salary
+15. Trips and Users
+
