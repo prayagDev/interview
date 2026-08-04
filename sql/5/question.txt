@@ -1,0 +1,124 @@
+question
+197. Rising Temperature
+Easy
+Topics
+premium lock icon
+Companies
+SQL Schema
+Pandas Schema
+Table: Weather
+
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| id            | int     |
+| recordDate    | date    |
+| temperature   | int     |
++---------------+---------+
+id is the column with unique values for this table.
+There are no different rows with the same recordDate.
+This table contains information about the temperature on a certain day.
+ 
+
+Write a solution to find all dates' id with higher temperatures compared to its previous dates (yesterday).
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Weather table:
++----+------------+-------------+
+| id | recordDate | temperature |
++----+------------+-------------+
+| 1  | 2015-01-01 | 10          |
+| 2  | 2015-01-02 | 25          |
+| 3  | 2015-01-03 | 20          |
+| 4  | 2015-01-04 | 30          |
++----+------------+-------------+
+Output: 
++----+
+| id |
++----+
+| 2  |
+| 4  |
++----+
+Explanation: 
+In 2015-01-02, the temperature was higher than the previous day (10 -> 25).
+In 2015-01-04, the temperature was higher than the previous day (20 -> 30).
+
+
+
+answer:
+
+
+This question is solved using a self join because we need to compare each day's temperature with the previous day's temperature.
+
+SQL Query
+SELECT w1.id
+FROM Weather w1
+JOIN Weather w2
+ON w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
+WHERE w1.temperature > w2.temperature;
+How it works
+
+Suppose the table is:
+
+id	recordDate	temperature
+1	2015-01-01	10
+2	2015-01-02	25
+3	2015-01-03	20
+4	2015-01-04	30
+Step 1: Self Join
+FROM Weather w1
+JOIN Weather w2
+
+We treat the same table as two different tables:
+
+w1 → Current day
+w2 → Previous day
+Step 2: Match current day with yesterday
+ON w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
+
+This means:
+
+Current Date = Previous Date + 1 day
+
+The joined rows become:
+
+w1.id	w1.recordDate	w1.temp	w2.recordDate	w2.temp
+2	2015-01-02	25	2015-01-01	10
+3	2015-01-03	20	2015-01-02	25
+4	2015-01-04	30	2015-01-03	20
+Step 3: Compare temperatures
+WHERE w1.temperature > w2.temperature
+
+Checks:
+
+25 > 10 ✅
+20 > 25 ❌
+30 > 20 ✅
+Step 4: Return IDs
+SELECT w1.id
+
+Output:
+
+id
+2
+4
+Why not join on id?
+
+The id column is just a unique identifier. It does not guarantee consecutive dates.
+
+For example:
+
+id	recordDate
+1	2015-01-01
+5	2015-01-02
+9	2015-01-03
+
+The IDs are not consecutive, but the dates are. Therefore, we compare using recordDate, not id.
