@@ -18,3 +18,5 @@ If you don't have time to solve all 50, solve these first:
 14. Department Highest Salary
 15. Trips and Users
 
+16. 185 — Department Top Three Salaries ⭐⭐⭐⭐
+Very important for DENSE_RANK().
