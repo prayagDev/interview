@@ -20,3 +20,31 @@ If you don't have time to solve all 50, solve these first:
 
 16. 185 — Department Top Three Salaries ⭐⭐⭐⭐
 Very important for DENSE_RANK().
+
+17. 180 — Consecutive Numbers ⭐⭐⭐
+Good for thinking about consecutive records.
+
+18. 601 — Human Traffic of Stadium ⭐⭐⭐⭐
+Very good LAG/LEAD practice.
+
+19. 1204 — Last Person to Fit in the Bus ⭐⭐⭐⭐
+Running totals.
+
+20. 1308 — Running Total for Different Genders ⭐⭐⭐⭐
+Window functions.
+
+21. 570 — Managers With at Least 5 Direct Reports ⭐⭐⭐
+Self join/subquery thinking.
+
+22. 550 — Game Play Analysis IV ⭐⭐⭐⭐
+Subquery + aggregation.
+
+23. 569 — Median Employee Salary ⭐⭐⭐⭐
+Advanced window functions.
+
+24. 615 — Average Salary Departments VS Company ⭐⭐⭐⭐
+More advanced aggregation.
+
+25. 1097 — Game Play Analysis V ⭐⭐⭐⭐⭐
+CTE + window functions.
+
