@@ -1,0 +1,78 @@
+Priority Key-Value Tracker
+
+You are building an in-memory analytics logger that tracks incoming API requests across various endpoints in a microservice framework.
+
+Write a function track_requests that accepts a list of request log tuples and aggregates the 
+total count of requests as well as the status code breakdown for each endpoint.
+
+Function Signature
+Python
+from collections import defaultdict, Counter
+
+def track_requests(log_entries: list[tuple[str, int]]) -> dict[str, dict]:
+    pass
+
+Example 1
+Input:
+
+Python
+log_entries = [
+    ("/api/v1/users", 200),
+    ("/api/v1/users", 200),
+    ("/api/v1/checkout", 500),
+    ("/api/v1/users", 404),
+    ("/api/v1/checkout", 200),
+    ("/api/v1/users", 200)
+]
+Output:
+
+Python
+{
+    "/api/v1/users": {
+        "total_calls": 4,
+        "status_counts": {
+            200: 3,
+            404: 1
+        }
+    },
+    "/api/v1/checkout": {
+        "total_calls": 2,
+        "status_counts": {
+            500: 1,
+            200: 1
+        }
+    }
+}
+
+
+Example 2
+Input:
+
+Python
+log_entries = [
+    ("/healthz", 200),
+    ("/healthz", 200)
+]
+Output:
+
+Python
+{
+    "/healthz": {
+        "total_calls": 2,
+        "status_counts": {
+            200: 2
+        }
+    }
+}
+
+
+Example 3
+Input:
+
+Python
+log_entries = []
+Output:
+
+Python
+{}
+
