@@ -1,0 +1,24 @@
+lt-befisc_t032@LT-BE043 bash-qna % bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ current_directory=$(pwd)
+bash-3.2$ 
+bash-3.2$ echo $current_directory
+/Users/lt-befisc_t032/PrayagProjects/bash-qna
+bash-3.2$ current_date=$(date)
+bash-3.2$ 
+bash-3.2$ echo "$current_date"
+Sat Sep  5 15:09:21 IST 2026
+bash-3.2$ current_user=$(whoami)
+bash-3.2$ current_directory=$(pwd)
+bash-3.2$ 
+bash-3.2$ echo "User: $current_user"
+User: lt-befisc_t032
+bash-3.2$ echo "Directory: $current_directory"
+Directory: /Users/lt-befisc_t032/PrayagProjects/bash-qna
+bash-3.2$ exit
+exit
+
+

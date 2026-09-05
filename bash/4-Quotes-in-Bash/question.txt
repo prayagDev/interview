@@ -1,0 +1,13 @@
+lt-befisc_t032@LT-BE043 3-Bash-Variables % bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ name="Prayag"
+bash-3.2$ 
+bash-3.2$ echo "My name is $name"
+My name is Prayag
+bash-3.2$ echo 'My name is $name'
+My name is $name
+bash-3.2$ exit
+exit

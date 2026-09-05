@@ -1,0 +1,19 @@
+lt-befisc_t032@LT-BE043 bash-qna % mkdir 3-Bash-Variables
+lt-befisc_t032@LT-BE043 bash-qna % bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ name="Prayag"
+bash-3.2$ echo $name
+Prayag
+bash-3.2$ name="Prayag"
+bash-3.2$ age=23
+bash-3.2$ 
+bash-3.2$ echo $name
+Prayag
+bash-3.2$ echo $age
+23
+bash-3.2$ exit
+exit
+lt-befisc_t032@LT-BE043 bash-qna % 

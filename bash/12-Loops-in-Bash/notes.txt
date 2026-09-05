@@ -1,0 +1,5 @@
+The two main ones we'll learn are:
+
+for loop
+while loop
+

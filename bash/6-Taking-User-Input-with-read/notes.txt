@@ -1,0 +1,19 @@
+lt-befisc_t032@LT-BE043 bash-qna % bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ read -p "What is your name? " name
+What is your name? Prayag
+bash-3.2$ read -p "What is your age? " age
+What is your age? 23
+bash-3.2$ echo "Hello $name, you are $age years old!"
+bash: !": event not found
+bash-3.2$ echo "Hello $name, you are $age years old"
+Hello Prayag, you are 23 years old
+bash-3.2$ 
+
+
+
+
+

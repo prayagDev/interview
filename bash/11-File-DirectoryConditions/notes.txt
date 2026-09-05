@@ -1,0 +1,6 @@
+-f  → File exists
+-d  → Directory exists
+-e  → File or directory exists
+-r  → Has read permission
+-w  → Has write permission
+-x  → Has execute permission

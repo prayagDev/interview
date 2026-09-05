@@ -1,0 +1,24 @@
+Shebang (`#!/bin/bash`) Notes:
+
+* Kya hai?
+* File ki bilkul pehli line (Line 1, Column 1) par likha jaane wala special instruction.
+* Isme `#` = Hash aur `!` = Bang hota hai, isliye ise Shebang / Hashbang kehte hain.
+
+
+* Kaise kaam karta hai?
+* Jab aap `./script.sh` run karte ho, toh Linux Kernel pehle 2 characters (`#!`) dekh kar samajh jaata hai ki is file ko aage kis program (interpreter) se execute karvana hai.
+
+
+* Kyun likhna zaroori hai?
+* Portability: macOS, Ubuntu, Debian, ya koi bhi Linux shell ho—script hamesha `Bash` me hi run hogi, syntax error nahi aayega.
+* Explicit Standard: Code ko self-documenting banata hai.
+
+
+* Difference:
+
+* `bash script.sh` -> 
+    Shebang ignored (kyunki aapne direct `bash` bol diya).
+
+* `./script.sh` -> 
+    Shebang compulsory (Kernel script ko sahi interpreter tak pahunchata hai).
+

@@ -1,0 +1,4 @@
+lt-befisc_t032@LT-BE043 7-Command-Line-Arguments-($1, $2) % bash greet.sh Prayag 23
+Name: Prayag
+Age: 23
+

@@ -1,0 +1,12 @@
+lt-befisc_t032@LT-BE043 bash-qna % bash 9-Special-Parameters-in-Bash/intro.sh 
+Script: 9-Special-Parameters-in-Bash/intro.sh
+Number of arguments: 0
+All arguments: 
+First argument: 
+
+lt-befisc_t032@LT-BE043 bash-qna % bash 9-Special-Parameters-in-Bash/intro.sh Prayag 23 Backend-Engineer
+Script: 9-Special-Parameters-in-Bash/intro.sh
+Number of arguments: 3
+All arguments: Prayag 23 Backend-Engineer
+First argument: Prayag
+
