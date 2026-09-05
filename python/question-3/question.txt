@@ -1,0 +1,19 @@
+2. defaultdict(list)
+
+Problem: Group students according to their marks.
+
+data = [
+    ("Rahul", 90),
+    ("Aman", 80),
+    ("Riya", 90),
+    ("Priya", 80),
+    ("Rohit", 70)
+]
+
+# Expected output:
+{
+    90: ["Rahul", "Riya"],
+    80: ["Aman", "Priya"],
+    70: ["Rohit"]
+}
+

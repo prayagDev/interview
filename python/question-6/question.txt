@@ -1,0 +1,20 @@
+sales = [
+    ("Delhi", "Laptop"),
+    ("Delhi", "Mobile"),
+    ("Delhi", "Laptop"),
+    ("Mumbai", "Laptop"),
+    ("Mumbai", "Mobile"),
+    ("Mumbai", "Mobile")
+]
+
+# Expected output:
+{
+    "Delhi": {
+        "Laptop": 2,
+        "Mobile": 1
+    },
+    "Mumbai": {
+        "Laptop": 1,
+        "Mobile": 2
+    }
+}

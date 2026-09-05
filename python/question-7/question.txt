@@ -1,0 +1,19 @@
+defaultdict(list) + sorting
+
+Problem: Given employee records, group employees by department and sort their names alphabetically.
+
+employees = [
+    ("Engineering", "Rahul"),
+    ("HR", "Aman"),
+    ("Engineering", "Zoya"),
+    ("HR", "Priya"),
+    ("Engineering", "Aman")
+]
+
+Expected:
+
+{
+    "Engineering": ["Aman", "Rahul", "Zoya"],
+    "HR": ["Aman", "Priya"]
+} 
+

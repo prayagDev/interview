@@ -1,0 +1,18 @@
+4. defaultdict(set)
+
+Problem: Store unique courses taken by each student.
+
+data = [
+    ("Rahul", "Python"),
+    ("Rahul", "Django"),
+    ("Rahul", "Python"),
+    ("Aman", "Python")
+]
+
+# Expected output:
+{
+    "Rahul": {"Python", "Django"},
+    "Aman": {"Python"}
+}
+
+This will teach you why set is useful inside a defaultdict.

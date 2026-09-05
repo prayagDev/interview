@@ -1,0 +1,15 @@
+3. defaultdict(int)
+
+Problem: Count the frequency of each character.
+
+text = "programming"
+
+# Expected output:
+{
+    "p": 1,
+    "r": 2,
+    "o": 1,
+    ...
+}
+
+Challenge: Don't use Counter.

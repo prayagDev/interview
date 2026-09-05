@@ -1,0 +1,13 @@
+1. defaultdict(list)
+
+Problem: Group words by their first character.
+
+words = ["apple", "ant", "banana", "ball", "cat"]
+
+# Expected output:
+{
+    "a": ["apple", "ant"],
+    "b": ["banana", "ball"],
+    "c": ["cat"]
+}
+
