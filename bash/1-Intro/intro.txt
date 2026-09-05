@@ -1,0 +1,382 @@
+BASH INTRODUCTION
+=================
+
+1. WHAT IS BASH?
+----------------
+
+Bash is a command-line interpreter and scripting language commonly used on Linux and Unix-like operating systems.
+
+Bash stands for:
+
+    Bourne Again SHell
+
+It allows us to interact with the operating system by typing commands.
+
+For example:
+
+    ls
+    cd project
+    mkdir my_folder
+    python app.py
+
+When we enter commands into a Bash shell, Bash interprets those commands and asks the operating system to perform the requested actions.
+
+
+2. WHAT IS A SHELL?
+-------------------
+
+A shell is a program that acts as an interface between the user and the operating system.
+
+The basic flow is:
+
+    User
+      ↓
+    Terminal
+      ↓
+    Shell (such as Bash)
+      ↓
+    Operating System
+      ↓
+    Hardware
+
+The shell receives our commands, interprets them, and communicates with the operating system.
+
+There are multiple shells available, such as:
+
+    Bash
+    Zsh
+    Fish
+    Sh
+
+Bash is one of the most popular and widely used shells.
+
+
+3. WHAT IS A TERMINAL?
+----------------------
+
+A terminal is the application or interface where we type commands.
+
+For example, applications such as Terminal, iTerm, Windows Terminal, or an SSH session provide a terminal interface.
+
+Important:
+
+    Terminal ≠ Shell
+
+The terminal is where we type commands.
+
+The shell is the program that understands and executes those commands.
+
+For example:
+
+    Terminal → The place where you interact
+    Bash     → The interpreter processing your commands
+
+
+4. WHAT IS BASH USED FOR?
+-------------------------
+
+Bash is mainly used for:
+
+    • Running Linux commands
+    • Navigating the file system
+    • Creating, copying, moving, and deleting files
+    • Managing processes
+    • Automating repetitive tasks
+    • Running applications
+    • Server administration
+    • Deployment automation
+    • Creating backup scripts
+    • Scheduling automated tasks
+
+Example:
+
+Instead of manually running:
+
+    cd /var/www/project
+    git pull
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python manage.py migrate
+    sudo systemctl restart gunicorn
+
+every time we deploy an application, we can automate these commands using a Bash script.
+
+
+5. WHAT IS A BASH SCRIPT?
+-------------------------
+
+A Bash script is simply a file containing multiple Bash commands.
+
+These files commonly use the .sh extension.
+
+Example:
+
+    deploy.sh
+
+Contents:
+
+    #!/bin/bash
+
+    cd /var/www/project
+    git pull
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python manage.py migrate
+
+We can execute the script instead of manually entering every command.
+
+For example:
+
+    bash deploy.sh
+
+Therefore:
+
+    Manual commands → Execute one by one
+    Bash script     → Automate multiple commands
+
+
+6. DOES BASH REQUIRE A .SH FILE?
+--------------------------------
+
+No.
+
+Bash can be used interactively without creating a script.
+
+For example, when you type:
+
+    ls
+    cd project
+    git status
+
+you are interacting with a shell directly.
+
+A .sh file is useful when we want to save multiple commands and execute them repeatedly.
+
+
+7. WHY SHOULD A BACKEND DEVELOPER LEARN BASH?
+---------------------------------------------
+
+Bash is especially useful for backend developers because backend applications often run on Linux servers.
+
+A backend developer may need to:
+
+    • Connect to servers using SSH
+    • Navigate server directories
+    • Check application logs
+    • Restart services
+    • Run migrations
+    • Manage environment variables
+    • Automate deployments
+    • Create backups
+    • Schedule jobs
+
+Bash acts like a bridge between applications and the operating system.
+
+For example:
+
+    Git → Pull latest code
+         ↓
+    Python → Install dependencies
+         ↓
+    Django → Run migrations
+         ↓
+    Gunicorn/Uvicorn → Restart application
+         ↓
+    Nginx → Serve the application
+
+
+8. BASH VS PYTHON
+-----------------
+
+Python:
+
+    • General-purpose programming language
+    • Used for building applications
+    • Excellent for complex logic
+    • Highly readable
+    • Used for backend development, automation, AI, etc.
+
+Bash:
+
+    • Shell and scripting language
+    • Designed primarily for interacting with the operating system
+    • Excellent for command execution and automation
+    • Commonly used on Linux servers
+
+Example:
+
+Python:
+
+    name = "Prayag"
+
+    if name == "Prayag":
+        print("Hello")
+
+Bash:
+
+    name="Prayag"
+
+    if [ "$name" = "Prayag" ]; then
+        echo "Hello"
+    fi
+
+
+9. IMPORTANT BASH CONCEPTS
+--------------------------
+
+The major concepts we will learn are:
+
+    1. Linux and terminal basics
+    2. Shell and Bash
+    3. Basic commands
+    4. Files and directories
+    5. Variables
+    6. User input
+    7. Command-line arguments
+    8. Quotes
+    9. Conditions
+    10. Loops
+    11. Functions
+    12. Environment variables
+    13. Pipes
+    14. Input/output redirection
+    15. Command substitution
+    16. Exit codes
+    17. grep
+    18. find
+    19. sed
+    20. awk
+    21. xargs
+    22. Shell scripting
+    23. Server automation
+    24. Deployment scripts
+    25. Cron jobs
+
+
+10. THE POWER OF BASH
+---------------------
+
+One of Bash's biggest strengths is connecting commands together.
+
+For example:
+
+    cat logs.txt | grep ERROR
+
+The | symbol is called a pipe.
+
+It sends the output of one command as input to another command.
+
+Conceptually:
+
+    Command 1
+        ↓
+      Output
+        ↓
+    Command 2
+
+This allows us to build powerful command pipelines.
+
+
+11. BASH AND AUTOMATION
+-----------------------
+
+Suppose we need to perform the following tasks every day:
+
+    • Download data
+    • Create a backup
+    • Process files
+    • Restart a service
+    • Remove old logs
+
+Instead of doing everything manually, we can write a Bash script.
+
+The operating system can then execute the script automatically.
+
+This makes Bash extremely useful for:
+
+    • DevOps
+    • Server management
+    • Backend deployment
+    • System administration
+    • Automation
+
+
+12. THE MAIN MINDSET FOR LEARNING BASH
+--------------------------------------
+
+Do not think of Bash as another large programming language like Python.
+
+Think of Bash as:
+
+    "A powerful way to communicate with and automate my operating system."
+
+Python is generally better for complex application logic.
+
+Bash is often better when the primary task involves:
+
+    • Executing system commands
+    • Managing files
+    • Automating server tasks
+    • Connecting multiple command-line programs
+
+
+13. BASH FOR A BACKEND DEVELOPER
+--------------------------------
+
+For a backend developer, Bash knowledge helps with:
+
+    Development:
+        Running applications and development tools
+
+    Deployment:
+        Automating the deployment process
+
+    Debugging:
+        Checking logs and system information
+
+    Server Management:
+        Managing processes and services
+
+    Automation:
+        Removing repetitive manual tasks
+
+
+14. FINAL SUMMARY
+-----------------
+
+Bash is a shell and scripting language used primarily to interact with and automate operating systems.
+
+Important distinctions:
+
+    Terminal:
+        The interface where we type commands.
+
+    Shell:
+        A program that interprets our commands.
+
+    Bash:
+        One of the most popular shells and scripting languages.
+
+    Bash Script:
+        A file containing multiple Bash commands, often with a .sh extension.
+
+The core idea is:
+
+    Write commands manually → Perform tasks
+
+    Save commands in a script → Automate tasks
+
+Bash is particularly valuable for backend developers because most servers and cloud environments use Linux.
+
+The ultimate goal of learning Bash is not to memorize hundreds of commands.
+
+The goal is to understand:
+
+    How to interact with a system
+    How commands work
+    How to combine commands
+    How to automate repetitive tasks
+    How to manage and deploy applications efficiently
+
+
+END OF BASH INTRODUCTION
