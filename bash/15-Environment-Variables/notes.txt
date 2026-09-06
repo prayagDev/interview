@@ -1,0 +1,5 @@
+lt-befisc_t032@LT-BE043 bash-qna % export MY_NAME="Prayag"
+lt-befisc_t032@LT-BE043 bash-qna % bash 15-Environment-Variables/script.sh
+Prayag
+lt-befisc_t032@LT-BE043 bash-qna % 
+

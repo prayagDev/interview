@@ -1,0 +1,5 @@
+python backup.py && echo "Success" || echo "Failed"
+
+if backup.py succeeds then will print "Success"
+if backup.py does not succeeds then will print "Failed"
+

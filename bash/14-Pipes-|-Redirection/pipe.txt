@@ -1,0 +1,37 @@
+1. Pipe |
+
+    A pipe takes the output of one command and gives it as input to another command.
+
+    Example:
+
+        ls | grep ".txt"
+
+        Think of the flow:
+
+            ls
+            ↓
+            Output: all files
+            ↓
+            grep ".txt"
+            ↓
+            Shows matching files
+
+    Another example:
+
+        cat file.txt | grep "ERROR"
+
+        Meaning:
+
+        cat file.txt reads the file.
+        Its output is passed to grep.
+        grep shows lines containing ERROR.
+
+
+
+The mindset 🧠
+Command 1 | Command 2 | Command 3
+
+Basically:
+
+Take the result from the left and keep passing it to the next command.
+

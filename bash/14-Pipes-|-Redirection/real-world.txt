@@ -1,0 +1,86 @@
+3. Append using >>
+
+    If you want to add content without deleting existing content:
+
+    echo "First" > data.txt
+    echo "Second" >> data.txt
+    echo "Third" >> data.txt
+
+    Now:
+
+    cat data.txt
+
+    Output:
+
+    First
+    Second
+    Third
+
+    So remember:
+
+    >   → Create/overwrite
+    >>  → Append
+
+
+
+A practical example 🔥
+
+    Suppose you want to store all Python files in a text file:
+
+        ls | grep ".py" > python_files.txt
+
+    The flow:
+
+        ls
+        ↓
+        grep ".py"
+        ↓
+        > python_files.txt
+
+
+This is why Bash is so powerful: you can connect commands together and redirect their results wherever you want. 😎
+
+
+                            Quick practice 🫡
+
+                            Run:
+
+                            echo "Python" > languages.txt
+                            echo "SQL" >> languages.txt
+                            echo "Bash" >> languages.txt
+
+                            cat languages.txt
+
+    
+    ---------------------------------------------------------------------------------------------------
+                            2- practical example 🔥
+
+ohh so pip freeze > req.txt 
+
+Exactly bro! 😎🔥
+
+pip freeze > requirements.txt
+
+Now you completely understand what this does:
+
+pip freeze
+    ↓
+Outputs all installed Python packages
+    ↓
+>
+    ↓
+Redirects that output into requirements.txt
+
+So instead of showing this on your terminal:
+
+Django==5.x.x
+requests==...
+pandas==...
+
+it writes everything into:
+
+requirements.txt
+
+And if the file already exists, > overwrites it.
+
+This is a perfect real-world example of output redirection. 💯

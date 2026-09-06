@@ -1,0 +1,56 @@
+Suppose your deployment script is:
+
+        #!/bin/bash
+
+        git pull
+        pip install -r requirements.txt
+        python manage.py migrate
+        sudo systemctl restart gunicorn
+
+        Imagine:
+
+            git pull ❌ fails
+                ↓
+            But the script continues 😬
+                ↓
+            pip install runs
+                ↓
+            migrations run
+                ↓
+            Gunicorn restarts
+
+        Sometimes this is dangerous.
+
+
+
+
+
+
+
+----------------------------------------------------------------------------
+
+
+The solution: set -e
+
+
+                Add this near the top:
+
+                #!/bin/bash
+
+                set -e
+
+                git pull
+                pip install -r requirements.txt
+                python manage.py migrate
+                sudo systemctl restart gunicorn
+
+
+
+
+Now the flow becomes:
+
+        git pull
+            ↓
+        Success? → Continue
+        Failure? → Stop the script immediately
+

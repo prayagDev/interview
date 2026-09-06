@@ -1,0 +1,26 @@
+2. Redirection >
+
+    Instead of displaying command output on the terminal, you can send it into a file.
+
+    echo "Hello Bro" > hello.txt
+
+    This creates hello.txt and puts:
+
+    Hello Bro
+
+    inside it.
+
+
+⚠️ Important: > overwrites the existing file.
+
+For example:
+
+echo "First" > data.txt
+echo "Second" > data.txt
+
+The final file contains only:
+
+Second
+
+Because the second command overwrites the first one.
+

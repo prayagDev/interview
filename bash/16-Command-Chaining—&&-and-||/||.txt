@@ -1,0 +1,15 @@
+|| — Run the next command only if the previous one fails
+
+            Example:
+
+            mkdir test || echo "Failed to create directory"
+
+            Flow:
+
+            mkdir test
+                ↓
+            Failed?
+                ↓ Yes
+            echo "Failed to create directory"
+
+

@@ -1,0 +1,32 @@
+What is an Exit Code?
+
+    Whenever you execute a command, 
+    the command eventually finishes and returns a status to the operating system.
+
+
+            For example:
+
+                mkdir test_folder
+                echo $?
+
+                If successful:
+                0
+
+                Now run it again:
+
+                mkdir test_folder
+                echo $?
+
+                You'll likely get something like:
+                1
+
+
+
+            Because the directory already exists.
+
+
+
+
+$? defines 0 (Success)
+1 (Failed)
+

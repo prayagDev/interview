@@ -1,0 +1,33 @@
+&& — Run the next command only if the previous one succeeds
+
+            Example:
+
+                mkdir test && cd test
+
+
+            Flow:
+
+                mkdir test
+                    ↓
+                Success? (exit code 0)
+                    ↓ Yes
+                cd test
+
+                If mkdir test fails, cd test won't run.
+
+
+
+
+Real-world example 🚀
+        
+        
+        git pull && python manage.py migrate && sudo systemctl restart gunicorn
+
+            Meaning:
+
+            git pull
+            ↓ success?
+            migrate
+            ↓ success?
+            restart server
+
