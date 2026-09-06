@@ -1,0 +1,71 @@
+You already know:
+
+    command1 | command2
+
+    The output of command1 becomes the input of command2.
+
+
+
+
+The problem 😬
+
+        Suppose:
+
+            some_command | grep "something"
+
+            Imagine some_command fails, but grep finishes successfully.
+
+            By default, Bash can consider the pipeline's final status based on the last command.
+
+            For example:
+
+                command_that_fails | some_command_that_succeeds
+
+                echo $?
+
+            You might get:
+
+                0
+
+            Even though the first command failed. 🤯
+
+
+
+pipefail fixes this 🔥
+
+    Enable it with:
+
+    set -o pipefail
+
+    Now:
+
+    command_that_fails | some_command_that_succeeds
+
+    If any important command in the pipeline fails, the pipeline gets a failure status.
+
+
+
+The famous line 🏆
+
+    Now you understand:
+
+        set -euo pipefail
+
+        Let's break it down:
+
+            -e for exit → Stop when a command fails
+
+            -u for undefined → Error when an undefined variable is used
+
+            -o pipefail → Detect failures inside pipelines
+
+
+
+So a production-style script often starts with:
+
+    #!/bin/bash
+
+    set -euo pipefail
+
+    🔥 This is a common defensive starting point for Bash automation scripts.
+

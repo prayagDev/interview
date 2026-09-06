@@ -1,0 +1,31 @@
+You learned:
+
+    set -e
+
+        which helps stop the script when a command fails.
+
+        Now let's see another common problem.
+
+        
+
+Suppose you write:
+
+        #!/bin/bash
+
+        echo "Hello $name"
+
+            But you never created:
+
+            name="Prayag"
+
+
+
+Without set -u, Bash may simply treat the undefined variable as an empty value:
+
+        Hello
+
+        That can create silent bugs 😬.
+
+
+
+You can use set -u or u can use set -eu too 
