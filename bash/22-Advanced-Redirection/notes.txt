@@ -1,0 +1,79 @@
+You already know:
+
+>   → Overwrite normal output
+>>  → Append normal output
+
+
+1. > — Save normal output
+
+        ls > files.txt
+
+        Instead of showing the files in the terminal:
+
+        Terminal → files.txt
+
+        ⚠️ Existing content gets overwritten.
+
+
+
+
+2. >> — Append normal output
+
+    ls >> files.txt
+
+        This adds the output to the end of the existing file.
+
+        This is useful for logs:
+
+        echo "Backup started" >> backup.log
+
+
+3. 2> — Save only errors
+
+    ls non_existing_folder 2> error.log
+
+        The error won't appear normally in the terminal. Instead:
+
+        stderr → error.log
+
+        You can check it:
+
+        cat error.log
+
+
+
+4. 2>&1 — The confusing one 🤯
+
+    First remember:
+
+        1 = stdout
+        2 = stderr
+
+    Consider:
+
+        Overwrite-> python backup.py > backup.log 2>&1
+        Append -> python backup.py >> backup.log 2>&1
+
+
+        It has > backup.log 
+            which means all normal output should be send in backup.log bcz > refers 1
+
+        Then we have 2>&1
+            means Send stderr (2) to wherever stdout (1) is currently going.
+
+        so overall it means all normal and error output would be send on this backup.log file
+
+        this syntax u will see in cron jobs 
+
+
+
+Quick cheat sheet 😎
+command > file        → stdout overwrite
+command >> file       → stdout append
+command 2> file       → stderr overwrite
+command 2>> file.     -> stderr append
+command > file 2>&1   → stdout + stderr overwrite
+command >> file 2>&1  → stdout + stderr append
+
+
+

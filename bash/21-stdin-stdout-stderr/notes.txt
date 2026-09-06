@@ -1,0 +1,4 @@
+0 → stdin   → Input
+1 → stdout  → Normal output
+2 → stderr  → Error output
+

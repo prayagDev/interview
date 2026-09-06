@@ -1,0 +1,77 @@
+grep is used for Searching for Text
+
+grep is one of the most useful Linux commands, 
+especially when dealing with logs and server files.
+
+
+-----------------------------------------------------------------------
+
+grep "ERROR" app.log
+
+    It will show all lines containing:
+    ERROR
+
+
+
+-----------------------------------------------------------------------
+
+grep -i "error" app.log
+
+
+    Case-insensitive search: -i
+        grep -i "error" app.log
+
+        This matches:
+
+            ERROR
+            Error
+            error
+            eRrOr
+
+
+-----------------------------------------------------------------------
+
+grep -c "ERROR" app.log
+
+    Example output:
+        25
+        Meaning ERROR appeared in 25 matching lines.
+
+
+-----------------------------------------------------------------------
+
+grep -v "DEBUG" app.log
+        
+        Invert the search: -v
+        This shows all lines that do not contain DEBUG.
+        Very useful for filtering noisy logs.
+
+
+-----------------------------------------------------------------------
+
+
+grep -r "DATABASE_URL" .
+        
+        Recursive search: -r
+        Suppose you want to find where DATABASE_URL is used throughout your project:
+        
+        Meaning:
+
+            Search recursively
+                ↓
+            Inside the current directory
+                ↓
+            And its subdirectories
+
+
+
+-----------------------------------------------------------------------
+
+
+ps aux | grep "gunicorn"
+
+    The ps aux command in Linux is used to display a detailed, 
+    system-wide snapshot of all currently running processes
+
+    here grep filters gunicorn services 
+
