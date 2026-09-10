@@ -42,7 +42,6 @@ echo "========================================"
 
 cd "$PROJECT_PATH"
 
-# GitHub repository URL with credentials
 REPO_URL="https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/prayag-befisc/tap-tap-internal-dashboard.git"
 
 echo ">>> Fetching latest code..."
@@ -63,7 +62,22 @@ pip install -r requirements.txt
 echo ">>> Restarting Supervisor service..."
 sudo supervisorctl restart "$SERVICE_NAME"
 
-echo "========================================"
-echo "Deployment completed successfully!"
-echo "========================================"
+echo ">>> Checking Supervisor status..."
+
+STATUS=$(sudo supervisorctl status "$SERVICE_NAME")
+
+echo "$STATUS"
+
+if echo "$STATUS" | grep -q "RUNNING"; then
+    echo "========================================"
+    echo "Deployment completed successfully!"
+    echo "Service is RUNNING."
+    echo "========================================"
+else
+    echo "========================================"
+    echo "Deployment FAILED!"
+    echo "Service is NOT RUNNING."
+    echo "========================================"
+    exit 1
+fi
 
