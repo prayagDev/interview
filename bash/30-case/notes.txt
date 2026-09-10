@@ -1,0 +1,19 @@
+Sometimes you need to compare one value against multiple possible options.
+
+You could use many if statements, but Bash provides case for this.
+
+Example
+read -p "Enter environment (dev/prod): " env
+
+case "$env" in
+    dev)
+        echo "Development environment"
+        ;;
+    prod)
+        echo "Production environment"
+        ;;
+    *)
+        echo "Invalid environment"
+        ;;
+esac
+

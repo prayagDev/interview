@@ -1,0 +1,93 @@
+grep → Find text inside files
+find → Find actual files/directories
+
+---------------------------------------------------------------------------------------------------------
+
+1. Find a file by name
+
+find . -name "app.log"
+
+    Breakdown:
+
+    find     → Find command
+    .        → Start searching from current directory
+    -name    → Search by name
+    "app.log" → File/directory name
+
+
+---------------------------------------------------------------------------------------------------------
+
+2. Search from a specific directory
+
+find /var/log -name "app.log"
+
+This searches inside:
+
+/var/log
+
+and all its subdirectories.
+
+
+---------------------------------------------------------------------------------------------------------
+
+3. Find all .log files
+
+find . -name "*.log"
+
+
+---------------------------------------------------------------------------------------------------------
+
+4. Case-insensitive search
+
+Suppose files could be:
+
+APP.LOG
+app.log
+App.log
+
+Use:
+
+find . -iname "*.log"
+
+-iname means case-insensitive name matching.
+
+
+---------------------------------------------------------------------------------------------------------
+
+5. Find only files or directories
+
+Only files:
+find . -type f -name "*.py"
+    
+                -type f → Regular files
+
+
+Only directories:
+find . -type d -name "logs"
+                
+                -type d → Directories
+
+
+---------------------------------------------------------------------------------------------------------
+
+Real-world use case 🔥
+
+    Suppose your server has thousands of log files and you want to find logs older than 30 days:
+
+    find /var/log -type f -name "*.log" -mtime +30
+
+        Meaning:
+
+            Search in /var/log
+                ↓
+            Only regular files
+                ↓
+            Only .log files
+                ↓
+            Modified more than 30 days ago
+
+Later, you could even automate cleanup.
+
+
+---------------------------------------------------------------------------------------------------------
+

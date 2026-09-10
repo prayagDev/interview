@@ -1,0 +1,15 @@
+Think of sed as a tool for finding and modifying text programmatically
+sed = stream editor
+
+lt-befisc_t032@LT-BE043 28-sed % sed 's/True/False/' config.txt
+DEBUG=False
+DATABASE=old_database
+
+
+Read config.txt, make the replacement in the output, and print that modified result to the terminal.
+It does not modify the actual file.
+
+sed -i '' 's/True/False/' config.txt
+
+this is used to actually update in the config
+

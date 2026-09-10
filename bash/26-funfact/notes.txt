@@ -1,0 +1,22 @@
+funfact is that there are so many tasks what was you thinking in mind 
+that they are very big tasks
+
+u can actully do them in a single line command in bash
+
+and for the same task u probably wrtiting some lines of python code liek a script with some 
+typical file libraries
+
+for example 
+
+u get a task to remove all logs files which are older than 30 days not Modified
+
+so probably u will write a python function which will first find all logs files
+then check their Modified
+then do the condition of 30
+then remove
+
+so 4 task it seeems a lil complex iteself but the same thing u can do using | and find and xargs 
+
+like 
+find *.logs | m +30 | xargs rm
+

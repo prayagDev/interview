@@ -1,0 +1,25 @@
+xargs is used to take input from another command and use that input as arguments for a new command.
+
+find . -name "*.log" | xargs rm
+
+The flow:
+
+find . -name "*.log"
+        ↓
+Returns matching files
+        ↓
+xargs
+        ↓
+Passes those files to rm
+        ↓
+Files deleted
+
+⚠️ Don't randomly run deletion commands while learning 😭😂.
+
+
+
+find . -name "*.txt" | xargs cp -t /backup
+
+    in this command all txt files are going to send in backup directory
+
+

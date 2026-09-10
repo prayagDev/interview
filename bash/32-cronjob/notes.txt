@@ -1,0 +1,87 @@
+Basic format
+* * * * * command
+│ │ │ │ │
+│ │ │ │ └── Day of week
+│ │ │ └──── Month
+│ │ └────── Day of month
+│ └──────── Hour
+└────────── Minute
+
+
+For example:
+
+    0 2 * * * /bin/bash /home/app/backup.sh
+
+    Means:
+
+        Run backup.sh every day at 2:00 AM.
+
+
+Why use a .sh file?
+
+    You could technically put everything directly in cron:
+
+    0 2 * * * pg_dump "$DATABASE_URL" > backup.sql
+
+    But once the logic becomes bigger, that's ugly. 😂
+
+    Instead:
+
+        Cron
+        ↓
+        backup.sh
+        ↓
+        load environment
+        ↓
+        run backup
+        ↓
+        check success/failure
+        ↓
+        log result
+
+
+
+
+Real-world backup example 🔥
+
+    backup.sh:
+
+        #!/bin/bash
+
+        set -euo pipefail
+
+        source /home/app/.env
+
+        echo "Backup started: $(date)"
+
+        pg_dump "$DATABASE_URL" > /home/app/backups/db.sql
+
+        echo "Backup completed: $(date)"
+
+    Then:
+
+        crontab -e
+
+    Add:
+
+        0 2 * * * /bin/bash /home/app/backup.sh >> /home/app/backup.log 2>&1
+
+
+    
+
+Now every night:
+
+2:00 AM
+   ↓
+Cron triggers script
+   ↓
+backup.sh
+   ↓
+pg_dump
+   ↓
+Success → log
+Failure → stderr → log
+
+🔥 This is exactly the kind of Bash + Cron combination you'll encounter on Linux servers.
+
+

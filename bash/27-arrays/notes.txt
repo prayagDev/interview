@@ -1,0 +1,12 @@
+# Create
+arr=("Python" "SQL" "Bash")
+
+# Single item
+echo "${arr[0]}"
+
+# All items
+echo "${arr[@]}"
+
+# Length
+echo "${#arr[@]}"
+

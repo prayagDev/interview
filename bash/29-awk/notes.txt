@@ -1,0 +1,54 @@
+If sed is mainly for editing/replacing text, awk is mainly useful for extracting and processing structured data.
+
+Think of output like this:
+
+NAME       AGE      ROLE
+Prayag     23       Developer
+Rahul      25       Designer
+
+awk can work with individual columns.
+
+
+1. Print a specific column
+
+    Suppose you have:
+
+    Prayag 23 Developer
+    Rahul 25 Designer
+
+    Run:
+
+    awk '{print $1}' data.txt
+
+
+
+
+Real-world example 🔥
+
+You've probably seen:
+
+ps aux
+
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.2 166304 11568 ?        Ss   Jun17   5:31 /lib/systemd/systemd --system --deserialize 45
+root           2  0.0  0.0      0     0 ?        S    Jun17   0:01 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Jun17   0:00 [rcu_gp]
+
+It gives information about running processes in columns.
+
+You can extract a particular column:
+
+ps aux | awk '{print $2}'
+PID
+1
+2
+3
+
+
+
+
+ubuntu@taptap-internal-dashboard:~$ ps aux | grep gunicorn
+ubuntu    956055  0.0  0.0   7008  2032 pts/0    S+   14:07   0:00 grep --color=auto gunicorn
+ubuntu@taptap-internal-dashboard:~$ ps aux | grep gunicorn | awk '{print $2}'
+956059
+

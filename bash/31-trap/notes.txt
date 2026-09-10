@@ -1,0 +1,29 @@
+trap — Handling Errors & Cleanup
+
+trap lets your Bash script react when a particular signal or event happens.
+
+Real-world example 🔥
+
+Imagine your backup script creates a temporary file:
+
+#!/bin/bash
+
+temp_file="/tmp/database_backup.sql"
+
+cleanup() {
+    echo "Removing temporary file..."
+    rm -f "$temp_file"
+}
+
+trap cleanup EXIT
+
+echo "Creating backup..."
+
+pg_dump "$DATABASE_URL" > "$temp_file"
+
+echo "Uploading backup..."
+# Upload to S3, etc.
+
+
+
+

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -euo pipefail
+
+PROJECT_DIR="/home/app/myproject"
+VENV="$PROJECT_DIR/venv"
+
+echo "🚀 Deployment started..."
+
+cd "$PROJECT_DIR"
+
+echo "📥 Pulling latest code..."
+git pull origin main
+
+echo "🐍 Activating virtual environment..."
+source "$VENV/bin/activate"
+
+echo "📦 Installing dependencies..."
+pip install -r requirements.txt
+
+echo "🗄️ Running migrations..."
+python manage.py migrate
+
+echo "📁 Collecting static files..."
+python manage.py collectstatic --noinput
+
+echo "🔄 Restarting Gunicorn..."
+sudo systemctl restart gunicorn
+
+echo "✅ Deployment completed successfully!"
