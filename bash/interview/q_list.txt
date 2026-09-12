@@ -1,0 +1,52 @@
+Basic - 5
+
+
+What is the difference between an environment variable and a shell variable? How do you access them?
+
+What is the difference between $0, $1, $2, and $@ in a Bash script?
+
+What does $? represent? Write a command that prints the exit status of the previous command.
+
+What is the difference between > and >>? What about 2> and 2>>?
+
+What is the difference between && and || in Bash?
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+Intermediate - 5
+
+Write a Bash script that accepts a filename as $1 and checks whether the file exists.
+
+Write a command to find all .log files recursively and pass them to another command using xargs.
+
+Explain what set -e and set -o pipefail do. Give an example where they matter.
+
+Write a cron expression to run a script every day at 12:05 AM.
+
+Write a Bash script that accepts multiple arguments and prints each argument along with its position.
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+Advanced - 5
+
+
+Write a Bash script that runs a command and executes another command only if the first command fails, 
+while correctly handling its exit status.
+
+Using find and xargs, find all .txt files and copy them into a /backup directory.
+
+
+Write a Bash script that reads a .env-style configuration and 
+reuses the same database variables for a backup command without duplicating the values.
+
+
+Write a Bash script that safely processes filenames containing spaces and special characters.
+
+
+Create a cron-based Bash backup script that logs successful and failed executions separately and 
+correctly detects pipeline failures.
+
